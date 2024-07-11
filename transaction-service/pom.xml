@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.bankflex</groupId>
-	<artifactId>notification-service</artifactId>
+	<artifactId>transaction-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>notification-service</name>
+	<name>transaction-service</name>
 	<description>Account Service for BancoFlex</description>
 	<url/>
 	<licenses>

@@ -1,10 +1,10 @@
-package com.bankflex.notification_service;
+package com.bankflex.transaction_service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class NotificationServiceApplicationTests {
+class TransactionServiceApplicationTests {
 
 	@Test
 	void contextLoads() {
