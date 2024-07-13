@@ -1,0 +1,131 @@
+openapi: 3.0.1
+info:
+  title: BankFlex AccountService API
+  description: API para autenticação de usuários e funcionalidades de cadatros
+  version: 1.0.0
+  contact:
+    name: Seu Nome
+    email: seu.email@example.com
+    url: https://www.seusite.com
+  license:
+    name: Licença API BankFlex AccountService
+    url: https://www.exemplo.com/licenca
+servers:
+  - url: http://localhost:8081
+paths:
+  /auth/login:
+    post:
+      summary: Autentica e gera um token
+      tags:
+        - Authentication
+      operationId: authenticateAndGenerateToken
+      requestBody:
+        description: Credenciais de login
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: Autenticação bem-sucedida
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+
+  /users:
+    post:
+      summary: Cria um novo usuário
+      tags:
+        - User
+      operationId: createUser
+      requestBody:
+        description: Detalhes do usuário para criação
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRequest'
+      responses:
+        '201':
+          description: Usuário criado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+      security:
+        - bearer-key: [ ]
+
+  /users/password-reset:
+    post:
+      summary: Salva o token de redefinição de senha para um usuário
+      tags:
+        - User
+      operationId: savePasswordResetToken
+      parameters:
+        - in: query
+          name: email
+          description: E-mail do usuário para redefinição de senha
+          schema:
+            type: string
+          required: true
+      responses:
+        '204':
+          description: Token de redefinição de senha salvo com sucesso
+      security:
+        - bearer-key: [ ]
+
+components:
+  schemas:
+    UserResponse:
+      type: object
+      properties:
+        userId:
+          type: integer
+          example: 123
+        name:
+          type: string
+          example: "John Doe"
+        email:
+          type: string
+          example: "johndoe@example.com"
+        password:
+          type: string
+          example: "password123"
+
+    UserRequest:
+      type: object
+      properties:
+        username:
+          type: string
+          example: "johndoe"
+        email:
+          type: string
+          example: "johndoe@example.com"
+        password:
+          type: string
+          example: "password123"
+
+    LoginRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          example: "johndoe@example.com"
+        password:
+          type: string
+          example: "password123"
+
+    LoginResponse:
+      type: object
+      properties:
+        token:
+          type: string
+          example: "eyJeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+        type:
+          type: string
+          example: "Bearer"
+
+security:
+  - bearer-key: [ ]

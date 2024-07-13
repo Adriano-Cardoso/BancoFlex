@@ -1,4 +1,4 @@
-package com.bankflex.account_service;
+package com.bankflex.accountservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
