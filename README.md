@@ -23,7 +23,8 @@ BancoFlex é composto por três serviços principais:
 
 ### Diagrama de Arquitetura
 
-![Diagrama de Arquitetura](path/to/diagrama.png)
+<img width="785" alt="image" src="https://github.com/user-attachments/assets/8cfaa325-d99f-4884-8e3f-8143786b61cd">
+
 
 ## Configuração do Kafka
 
