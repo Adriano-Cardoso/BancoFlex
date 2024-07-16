@@ -19,5 +19,6 @@ public class UserOutbound {
 
     private String cpfOrCnpj;
 
-    private String role;
+    private String password;
+
 }

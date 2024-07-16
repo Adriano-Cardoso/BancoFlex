@@ -52,6 +52,7 @@ services:
     image: account-service:latest
     build:
       context: ./account-service
+      dockerfile: Dockerfile
     ports:
       - "8081:8080"
     environment:
@@ -64,6 +65,17 @@ services:
       - postgres
     volumes:
       - postgres_account_data:/path/to/your/data # Certifique-se de usar o caminho correto para os dados
+
+  config:
+    build:
+      context: ./config
+      dockerfile: Dockerfile
+    image: config:latest
+    ports:
+      - "8082:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      KAFKA_BOOTSTRAP_SERVERS: kafka:29092
 
 #  transaction-service:
 #    image: transaction-service:latest

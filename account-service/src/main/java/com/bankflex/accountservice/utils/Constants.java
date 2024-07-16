@@ -11,4 +11,8 @@ public class Constants {
     public static final String BEARER = "bearer";
     public static final String ISSUER = "l2m-travelex-api";
     public static final String PROFILES_CLAIM = "profiles";
+
+    //profile
+    public static final String ANALYST = "Analista";
+    public static final String ADMIN = "Administrador";
 }

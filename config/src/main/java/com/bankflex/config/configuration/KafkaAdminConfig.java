@@ -1,4 +1,4 @@
-package config;
+package com.bankflex.config.configuration;
 
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.admin.AdminClientConfig;
@@ -9,7 +9,6 @@ import org.springframework.kafka.config.TopicBuilder;
 import org.springframework.kafka.core.KafkaAdmin;
 
 import java.util.HashMap;
-import java.util.Map;
 
 @Configuration
 @RequiredArgsConstructor

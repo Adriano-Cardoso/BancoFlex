@@ -1,5 +1,6 @@
 package com.bankflex.accountservice.domain.model;
 
+import com.bankflex.accountservice.domain.model.dto.inbound.UpdateUserInbound;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -35,6 +37,9 @@ public class User implements UserDetails {
 
     @Column(nullable = false)
     private String cpfOrCnpj;
+
+    @OneToMany(mappedBy = "user")
+    private Set<Account> accounts;
 
     @JoinTable(
             name = "tb_user_profiles",
@@ -76,5 +81,11 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public void update(UpdateUserInbound updateUserInbound) {
+        this.cpfOrCnpj = updateUserInbound.getCpfOrCnpj();
+        this.name = updateUserInbound.getName();
+        this.email = updateUserInbound.getEmail();
     }
 }
