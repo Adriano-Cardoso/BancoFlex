@@ -20,6 +20,7 @@ BancoFlex é composto por três serviços principais:
 1. **AccountService** (`account-service`): Gerenciamento de contas bancárias.
 2. **TransactionService** (`transaction-service`): Processamento de transações financeiras.
 3. **NotificationService** (`notification-service`): Envio de notificações para clientes.
+4. **RiskService** (`risk-service`): Analise de risco das transações
 
 ### Diagrama de Arquitetura
 
@@ -29,12 +30,16 @@ BancoFlex é composto por três serviços principais:
 ## Configuração do Kafka
 
 ### Tópicos Kafka
+- `bankflex-events`
 
+### Eventos
 - `account-created`
 - `account-updated`
 - `transaction-initiated`
 - `transaction-completed`
 - `notification-send`
+- `risk-assessment-requested`
+- `risk-assessment-completed`
 
 ## Regras de Negócio
 
@@ -51,6 +56,11 @@ BancoFlex é composto por três serviços principais:
 ### NotificationService
 - **Enviar Notificação**: Notificações são enviadas para o cliente sobre transações e atualizações de conta.
 - **Templates de Notificação**: Templates são utilizados para formatar as notificações de forma consistente.
+
+### RiskService
+- **Consome o evento risk-assessment-requested.
+- ** Realiza a avaliação de risco para a transação.
+- ** Publica o evento risk-assessment-completed no tópico bankflex-events.
 
 ## Execução do Projeto
 
