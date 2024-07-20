@@ -2,7 +2,7 @@
 
 ## Descrição
 
-BancoFlex é um sistema bancário moderno desenvolvido com arquitetura orientada a eventos, utilizando Java 17, Spring Boot, Kafka, Docker e PostgreSQL. Este projeto tem como objetivo demonstrar um sistema bancário completo com serviços de contas, transações e notificações.
+BancoFlex é um sistema bancário moderno desenvolvido com arquitetura orientada a eventos, utilizando Java 17, Spring Boot, Kafka, Docker e PostgreSQL. Este projeto tem como objetivo demonstrar um sistema bancário completo com serviços de contas, transações, risco e notificações.
 
 ## Tecnologias Utilizadas
 
